@@ -1,2 +1,2 @@
-# learn-nuxt
-learn-nuxt
+# vueNews
+vueNews
