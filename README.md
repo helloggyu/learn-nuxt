@@ -1,4 +1,3 @@
-news
 
 ## Porject Name
 ```
