@@ -1,5 +1,4 @@
-# news
-learn-vue
+news
 
 ## Porject Name
 ```
