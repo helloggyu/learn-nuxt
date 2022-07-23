@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import axious from 'axios'
+import {fetchNewsList} from '../api/index'
 export default {
   data(){
     return{
@@ -12,7 +12,7 @@ export default {
   },
   created(){
     var vm=this;
-    axious.get('https://api.hnpwa.com/v0/news/1.json')
+   fetchNewsList()
     .then(response=>vm.users=response.data)
     .catch(error=>console.log(error))
   }
