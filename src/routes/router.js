@@ -32,7 +32,7 @@ Vue.use(VueRouter);
       component:ItemView,
     },
     {
-      path:'/user',
+      path:'/user/:id',
       component:UserView,
     }
   ],
