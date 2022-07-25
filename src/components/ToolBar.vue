@@ -29,6 +29,9 @@ name:'ToolBar'
 a{
   color: white;
 }
+a:hover{
+  color: white;
+}
 .header__divider{
   width: 2px;
   height: 15px;
