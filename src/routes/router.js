@@ -28,7 +28,7 @@ Vue.use(VueRouter);
       component:JobsView,
     },
     {
-      path:'/item',
+      path:'/item/:id',
       component:ItemView,
     },
     {
