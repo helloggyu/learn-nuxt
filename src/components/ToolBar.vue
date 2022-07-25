@@ -1,7 +1,9 @@
 <template>
   <div class="header">
-    <router-link to="/news">News</router-link> |
-    <router-link to="/ask">Ask</router-link> |
+    <router-link to="/news">News</router-link> 
+    <span class="header__divider"></span>
+    <router-link to="/ask">Ask</router-link>
+    <span class="header__divider"></span>
     <router-link to="/jobs">Jobs</router-link>
   </div>
 </template>
@@ -17,12 +19,20 @@ name:'ToolBar'
   color: white;
   background: #29b59b;
   display: flex;
-  padding: 8px;
+  padding: 10px;
   .router-link-exact-active{
-    color: #fd616d;
+    color: #273849;;
   }
+  display: flex;
+  align-items: center;
 }
 a{
   color: white;
+}
+.header__divider{
+  width: 2px;
+  height: 15px;
+  background: #fff;
+  margin: 0 5px;
 }
 </style>

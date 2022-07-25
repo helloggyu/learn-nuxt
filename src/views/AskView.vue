@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="ask-view">
     <p v-for="(item,i) in fetchedAsk" :key="i">
       <router-link :to="`item/${item.id}`">{{item.title}}</router-link>
       <small>( {{item.time_ago}} by {{item.user}} )</small>
@@ -24,6 +24,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.ask-view{
+  padding: 0.5rem;
+}
 </style>

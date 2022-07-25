@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="jobs-view">
     <p v-for="(item,i) in this.$store.state.jobs" :key="i">
       <a :href="item.url"> {{item.title}} </a>
       <small>{{item.time_ago}}, {{item.domain}} </small>
@@ -16,6 +16,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.jobs-view{
+  padding: 0.5rem;
+}
 </style>
