@@ -1,13 +1,18 @@
 <template>
    <div>
-    <p>name: {{userInfo.id}}</p>
+    <!-- <p>name: {{userInfo.id}}</p>
     <p>karma: {{userInfo.karma}}</p>
-    <p>created: {{userInfo.created}}</p>
+    <p>created: {{userInfo.created}}</p> -->
+    <UserDetail></UserDetail>
    </div>
 </template>
 
 <script>
+import UserDetail from '../components/UserDetail.vue';
 export default {
+  components:{
+    UserDetail,
+  },
   computed:{
     userInfo(){
       return this.$store.state.user;
