@@ -11,12 +11,20 @@
           <!-- 기타 정보영역 -->
           <div>
             <p class="news-view__title">
-              <a :href="item.url">{{item.title}}</a>
+              <template v-if="item.domain">
+                <a :href="item.url">{{item.title}}</a>
+              </template>
+              <template v-else>
+                <router-link :to="`item/${item.id}`">
+                  {{item.title}}
+                </router-link>
+              </template>
             </p>
-            <small class="news-view__link" v-if="viewJobs">{{item.time_ago}}, {{item.domain}}</small>
-            <small class="news-view__link" v-else>
+             <small class="news-view__link" v-if="item.user">
               {{item.time_ago}} by <router-link :to="`/user/${item.user}`" class="news-view__link"> {{item.user}}</router-link>
             </small>
+            <small class="news-view__link" v-else>{{item.time_ago}}, {{item.domain}}</small>
+ 
           </div>
         </li>
       </ul>
@@ -29,10 +37,6 @@ export default {
     list: {
       type: Array,
       default: () => [],
-    },
-    viewJobs:  {
-      type: Boolean,
-      default: false,
     },
   }
 }
