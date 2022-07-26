@@ -3,11 +3,10 @@
     <UserDetail :info="userInfo">
       <template #userInfo>
         <div>name: {{userInfo.id}}</div>
-        <div>karma: {{userInfo.karma}}</div>
       </template>
-      <template #time>
-        {{userInfo.created}}
-      </template>
+      <span name='time'>
+        {{'Joined ' + userInfo.created}}, {{userInfo.karma}}
+      </span>
     </UserDetail>
    </div>
 </template>

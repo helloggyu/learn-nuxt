@@ -8,7 +8,7 @@
             </router-link>
         </template>
         <template #time>
-           {{fetchedItem.time_ago}}
+           {{'Posted ' + fetchedItem.time_ago}}
         </template>
       </UserDetail>
       <h2>{{fetchedItem.title}}</h2>
