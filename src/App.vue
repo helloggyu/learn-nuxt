@@ -12,9 +12,9 @@
 
 import ToolBar from './components/ToolBar';
 export default {
-components:{
-ToolBar,
-},
+  components:{
+    ToolBar,
+  },
 }
 
 </script>
