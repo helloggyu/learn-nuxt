@@ -1,22 +1,16 @@
 <template>
   <div class="ask-view">
-    <ul class="ask-view__list">
-      <li v-for="(item,i) in fetchedAsk" :key="i" class="ask-view__post">
-        <div class="ask-view__points">
-          {{item.points}}
-        </div>
-        <div>
-          <p class="ask-view__title"><router-link :to="`item/${item.id}`">{{item.title}}</router-link></p>
-          <small class="ask-view__info">( {{item.time_ago}} by {{item.user}} )</small>
-        </div>
-      </li>
-    </ul>
-  </div>
+     <ListItem :list="fetchedAsk" />
+</div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
+import ListItem from '../components/ListItem.vue'
 export default {
+  components:{
+    ListItem,
+  },
   computed:{
     ...mapGetters([
       'fetchedAsk'
@@ -54,6 +48,9 @@ export default {
   }
   &__title{
     margin: 0;
+  }
+  &__info{
+    color: #828282;
   }
 }
 </style>
