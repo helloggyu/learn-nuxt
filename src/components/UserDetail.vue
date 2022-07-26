@@ -1,36 +1,52 @@
 <template>
-   <div class="item-view">
-    <div class="item-view__container">
-      <i class="fas fa-user"></i>
-    </div>
-    <div class="item-view__discription">
-          <!-- <router-link :to="`/user/${fetchedItem.user}`">
-            {{fetchedItem.user}}
+  <div class="user-datail">
+    <div class="user-datail__container">
+      <div>
+         <i class="fas fa-user"></i>
+      </div>
+      <div class="user-datail__discription">
+        <div>name: {{info.id}}</div>
+        <div>karma: {{info.karma}}</div>
+        <div>created: {{info.created}}</div>
+          <!-- <router-link :to="`/user/${userInfo.user}`">
+            {{userInfo.user}}
           </router-link>
-          <div class="item-view__time">{{fetchedItem.time_ago}}</div> -->
-    </div>
+        <div class="user-datail__time">{{userInfo.time_ago}}</div>  -->
+      </div>
+    </div> 
   </div>
 </template>
 
 <script>
 export default {
-
+  name:'UserDetail',
+  props:{
+    info:{
+      type: [Array,Object],
+      default: () => ({}),
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-.item-view{
+.user-datail{
   padding: 0.5rem;
   color:#828282;
-  word-wrap: break-word;
-  word-break:break-word;
-  white-space: pre-line; 
   font-size: 1rem;
   &__time{
      font-size: 0.7rem;
   }
 }
+.user-datail__container{
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}
 .fa-user{
   font-size: 2.5rem;
+}
+.user-datail__discription{
+  padding-left: 8px;
 }
 </style>

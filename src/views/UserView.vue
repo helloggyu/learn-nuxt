@@ -3,12 +3,12 @@
     <!-- <p>name: {{userInfo.id}}</p>
     <p>karma: {{userInfo.karma}}</p>
     <p>created: {{userInfo.created}}</p> -->
-    <UserDetail></UserDetail>
+    <UserDetail :info="userInfo"></UserDetail>
    </div>
 </template>
 
 <script>
-import UserDetail from '../components/UserDetail.vue';
+import UserDetail from '../components/UserDetail';
 export default {
   components:{
     UserDetail,
