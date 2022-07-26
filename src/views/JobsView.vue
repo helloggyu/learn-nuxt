@@ -1,6 +1,6 @@
 <template>
   <div class="jobs-view">
-    <ListItem :list="this.$store.state.jobs" :viewJobs="true" />
+    <ListItem :list="this.$store.state.jobs"  />
   </div>
 </template>
 
