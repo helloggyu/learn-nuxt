@@ -32,9 +32,12 @@ export default {
       ...mapGetters(['fetchedItem'])
   },
   created(){
+     this.$store.dispatch('SHOW_SPINNER');
     const id=this.$route.params.id;
     console.log(id)
     this.$store.dispatch('FETCH_ITEM',id);
+     console.log(id)
+     this.$store.dispatch('HIDE_SPINNER');
   }
 }
 </script>

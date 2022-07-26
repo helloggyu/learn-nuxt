@@ -12,7 +12,9 @@ export default {
     ListItem,
   },
   created(){
+    this.$store.dispatch('SHOW_SPINNER');
     this.$store.dispatch('FETCH_NEWS');
+    this.$store.dispatch('HIDE_SPINNER');
   }
 }
 </script>

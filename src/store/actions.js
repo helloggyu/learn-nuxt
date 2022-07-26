@@ -39,5 +39,14 @@ export default {
       commit('SET_ITEM', data);
     })
     .catch(error=>console.log(error));
-  }
+  },
+
+  SHOW_SPINNER({commit}){
+    commit('SET_SPINNER', true);
+  },
+
+  HIDE_SPINNER({commit}){
+    commit('SET_SPINNER', false);
+  },
+
 }

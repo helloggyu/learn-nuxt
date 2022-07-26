@@ -4,6 +4,7 @@
     <transition name="page">
       <router-view></router-view>
     </transition>
+    <SpinnerView></SpinnerView>
     <!-- <v-app-bar
       app
       color="primary"
@@ -49,12 +50,13 @@
 
 <script>
 import ToolBar from './components/ToolBar';
-
+import SpinnerView from './components/SpinnerView';
 export default {
   name: 'App',
 
   components: {
     ToolBar,
+    SpinnerView,
   },
 
   data: () => ({
