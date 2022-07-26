@@ -5,13 +5,10 @@
          <i class="fas fa-user"></i>
       </div>
       <div class="user-datail__discription">
-        <div>name: {{info.id}}</div>
-        <div>karma: {{info.karma}}</div>
-        <div>created: {{info.created}}</div>
-          <!-- <router-link :to="`/user/${userInfo.user}`">
-            {{userInfo.user}}
-          </router-link>
-        <div class="user-datail__time">{{userInfo.time_ago}}</div>  -->
+        <slot name="userInfo"></slot>
+        <div class="user-datail__time">
+         <slot name="time"></slot>
+        </div>
       </div>
     </div> 
   </div>

@@ -1,9 +1,14 @@
 <template>
    <div>
-    <!-- <p>name: {{userInfo.id}}</p>
-    <p>karma: {{userInfo.karma}}</p>
-    <p>created: {{userInfo.created}}</p> -->
-    <UserDetail :info="userInfo"></UserDetail>
+    <UserDetail :info="userInfo">
+      <template #userInfo>
+        <div>name: {{userInfo.id}}</div>
+        <div>karma: {{userInfo.karma}}</div>
+      </template>
+      <template #time>
+        {{userInfo.created}}
+      </template>
+    </UserDetail>
    </div>
 </template>
 
