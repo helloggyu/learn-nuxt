@@ -11,7 +11,9 @@ export default {
     ListItem,
   },
   created(){
+    this.$store.dispatch('SHOW_SPINNER');
     this.$store.dispatch('FETCH_JOBS');
+    this.$store.dispatch('HIDE_SPINNER');
   }
   
 }

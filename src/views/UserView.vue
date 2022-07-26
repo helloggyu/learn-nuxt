@@ -3,10 +3,11 @@
     <UserDetail :info="userInfo">
       <template #userInfo>
         <div>name: {{userInfo.id}}</div>
-        <div>karma: {{userInfo.karma}}</div>
       </template>
       <template #time>
-        {{userInfo.created}}
+        <span>
+        {{'Joined ' + userInfo.created}}, {{userInfo.karma}}
+        </span>
       </template>
     </UserDetail>
    </div>
@@ -24,8 +25,10 @@ export default {
     }
   },
   created(){
+    this.$store.dispatch('SHOW_SPINNER');
     const userName=this.$route.params.id;
     this.$store.dispatch('FETCH_USER',userName);
+    this.$store.dispatch('HIDE_SPINNER');
   }
   
 }
