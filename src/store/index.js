@@ -13,6 +13,7 @@ export const store=new Vuex.Store({
     jobs:[],
     user:[],
     item:[],
+    list:[],
     spinnerVisible:false,
   },
 
@@ -22,7 +23,7 @@ export const store=new Vuex.Store({
     },
     fetchedItem(state){
       return state.item;
-    }
+    },
   },
 
   mutations,

@@ -6,6 +6,9 @@ const config = {
 }
 
 // 2.api 함수 정리
+function fatchList(pageName){
+  return axios.get(`${config.baseUrl}${pageName}/1.json`);
+}
 function fetchNewsList(){
   return axios.get(`${config.baseUrl}news/1.json`);
 }
@@ -26,10 +29,12 @@ function fetchItemList(askId){
   return axios.get(`${config.baseUrl}item/${askId}.json`);
 }
 
+
+
 export{
+  fatchList,
   fetchNewsList,
   fetchAskList,
-  fetchJobsList,
-  fetchUserInfo,
-  fetchItemList
+  fetchJobsList,  fetchUserInfo,
+  fetchItemList,
 }
