@@ -22,22 +22,35 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapActions, mapGetters } from 'vuex';
 import UserDetail from '../components/UserDetail.vue'
 export default {
   components:{
     UserDetail,
   },
   computed:{
-      ...mapGetters(['fetchedItem'])
+    ...mapGetters(['fetchedItem'])
+  },
+  methods:{
+    ...mapActions({
+      showSpinner:'SHOW_SPINNER',
+      hideSpinner:'HIDE_SPINNER',
+      fetchItem:'FETCH_ITEM'
+    }),
+    _fetchItem:(async function(){
+      const id = this.$route.params.id;
+      await this.showSpinner();
+      await this.fetchItem(id)
+        .then(async ()=>{
+          await this.hideSpinner();
+        })
+        .catch((error)=>{
+          console.log(error);
+        })
+    }),
   },
   created(){
-     this.$store.dispatch('SHOW_SPINNER');
-    const id=this.$route.params.id;
-    console.log(id)
-    this.$store.dispatch('FETCH_ITEM',id);
-     console.log(id)
-     this.$store.dispatch('HIDE_SPINNER');
+    this._fetchItem();
   }
 }
 </script>

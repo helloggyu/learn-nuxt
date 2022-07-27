@@ -15,20 +15,36 @@
 
 <script>
 import UserDetail from '../components/UserDetail';
+import { mapState, mapActions } from 'vuex';
 export default {
   components:{
     UserDetail,
   },
   computed:{
-    userInfo(){
-      return this.$store.state.user;
-    }
+    ...mapState({
+      userInfo:'user'
+    }),
+  },
+  methods:{
+    ...mapActions({
+      showSpinner:'SHOW_SPINNER',
+      hideSpinner:'HIDE_SPINNER',
+      fetchUser:'FETCH_USER'
+    }),
+    _fetchUser:(async function(){
+      await this.showSpinner();
+      const userName=this.$route.params.id;
+      await this.fetchUser(userName)
+        .then(async ()=>{
+          await this.hideSpinner();
+        })
+        .catch((error)=>{
+          console.log(error);
+        })
+    }),
   },
   created(){
-    this.$store.dispatch('SHOW_SPINNER');
-    const userName=this.$route.params.id;
-    this.$store.dispatch('FETCH_USER',userName);
-    this.$store.dispatch('HIDE_SPINNER');
+    this._fetchUser();
   }
   
 }

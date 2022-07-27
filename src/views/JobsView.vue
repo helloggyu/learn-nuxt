@@ -1,47 +1,47 @@
 <template>
-  <div class="jobs-view">
-    <ListItem :list="this.$store.state.jobs"  />
+  <div>
+    <ListItem :list="jobList"  />
   </div>
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex';
 import ListItem from '../components/ListItem.vue'
+
 export default {
   components:{
     ListItem,
   },
+  computed:{
+    ...mapState({
+      jobList:'jobs'
+    }),
+  },
+  methods:{
+    ...mapActions({
+      showSpinner:'SHOW_SPINNER',
+      hideSpinner:'HIDE_SPINNER',
+      fetchJobs:'FETCH_JOBS'
+    }),
+    _fetchJobs:(async function(){
+      await this.showSpinner();
+
+      await this.fetchJobs()
+        .then(async ()=>{
+          await this.hideSpinner();
+        })
+        .catch((error)=>{
+          console.log(error);
+        })
+    }),
+  },
   created(){
-    this.$store.dispatch('SHOW_SPINNER');
-    this.$store.dispatch('FETCH_JOBS');
-    this.$store.dispatch('HIDE_SPINNER');
+    this._fetchJobs();
   }
   
 }
 </script>
 
 <style lang="scss" scoped>
-.jobs-view{
-  &__list{
-    margin: 0;
-    padding: 0;
-  }
-  &__post{
-    list-style: none;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    align-items: center;
 
-  }
-  &__points{
-    width: 80px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #42b882;
-  }
-  &__info{
-    color: #828282;
-  }
-}
 </style>
