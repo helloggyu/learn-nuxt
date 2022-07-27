@@ -1,5 +1,8 @@
 import {
   fatchList,
+  fetchNewsList, 
+  fetchAskList, 
+  fetchJobsList,
   fetchUserInfo, 
   fetchItemList, 
 } from '../api/index';
@@ -14,6 +17,41 @@ export default {
     .catch((error)=>{
       console.log(error);
       return error
+    })
+  },
+  FETCH_NEWS({commit}){
+    fetchNewsList()
+    .then(({data})=>{
+      commit('SET_LIST',data);
+      return data;
+    })
+    .catch((error)=>{
+      console.log(error);
+      return error
+    })
+  },
+
+  FETCH_ASK({commit}){
+    fetchAskList()
+    .then(({data})=>{
+      commit('SET_ASK',data);
+      return data;
+    })
+    .catch(error=>{
+      console.log(error);
+      return error;
+    })
+  },
+
+  FETCH_JOBS({commit}){
+    fetchJobsList()
+    .then(({data})=>{
+      commit('SET_JOBS',data);
+      return data;
+    })
+    .catch(error=>{
+      console.log(error);
+      return error;
     })
   },
 

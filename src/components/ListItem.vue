@@ -32,12 +32,17 @@
 </template>
 
 <script>
+import { mapState} from 'vuex';
 export default {
- props:{
-    list: {
-      type: Array,
-      default: () => [],
-    },
+//  props:{
+//     list: {
+//       type: Array,
+//       default: () => [],
+//     },
+//   },
+  computed:{
+    ...mapState(['list']),
+
   },
 }
 </script>
