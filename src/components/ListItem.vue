@@ -33,12 +33,12 @@
 
 <script>
 export default {
-  props:{
+ props:{
     list: {
       type: Array,
       default: () => [],
     },
-  }
+  },
 }
 </script>
 
