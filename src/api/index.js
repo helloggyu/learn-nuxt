@@ -35,6 +35,7 @@ export{
   fatchList,
   fetchNewsList,
   fetchAskList,
-  fetchJobsList,  fetchUserInfo,
+  fetchJobsList, 
+  fetchUserInfo,
   fetchItemList,
 }

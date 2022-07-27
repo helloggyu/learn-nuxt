@@ -1,6 +1,8 @@
 import {
   fatchList,
-  fetchNewsList, fetchAskList, fetchJobsList,
+  fetchNewsList, 
+  fetchAskList, 
+  fetchJobsList,
   fetchUserInfo, 
   fetchItemList, 
 } from '../api/index';
@@ -20,12 +22,12 @@ export default {
   FETCH_NEWS({commit}){
     fetchNewsList()
     .then(({data})=>{
-      commit('SET_NEWS',data);
+      commit('SET_LIST',data);
       return data;
     })
-    .catch(error=>{
+    .catch((error)=>{
       console.log(error);
-      return error;
+      return error
     })
   },
 
