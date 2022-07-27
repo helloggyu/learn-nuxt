@@ -1,24 +1,48 @@
 <template>
   <div>
-    <ListItem :list="this.$store.state.news" />
+    <ListItem :list="newsList" />
   </div>
   
 </template>
 
 <script>
-import ListItem from '../components/ListItem.vue'
+import ListItem from '../components/ListItem.vue';
+import { mapState, mapActions } from 'vuex';
+
 export default {
   components:{
     ListItem,
   },
+  computed:{
+    ...mapState({
+      newsList:'news'
+    }),
+  },
+  methods:{
+    ...mapActions({
+      showSpinner:'SHOW_SPINNER',
+      hideSpinner:'HIDE_SPINNER',
+      fetchNews:'FETCH_NEWS'
+    }),
+
+    _fetchNews:(async function(){
+      await this.showSpinner();
+
+      await this.fetchNews()
+        .then(async ()=>{
+          await this.hideSpinner();
+        })
+        .catch((error)=>{
+          console.log(error);
+        })
+    }),
+  },
+
   created(){
-    this.$store.dispatch('SHOW_SPINNER');
-    this.$store.dispatch('FETCH_NEWS');
-    this.$store.dispatch('HIDE_SPINNER');
-  }
+    this._fetchNews();
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-
 </style>
