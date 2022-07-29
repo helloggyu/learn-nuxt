@@ -1,5 +1,5 @@
 <template>
-    <ListItem :list="list"/>
+    <ListItem/>
 </template>
 
 <script>
