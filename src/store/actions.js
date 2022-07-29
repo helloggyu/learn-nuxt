@@ -9,7 +9,7 @@ import {
 
 export default {
   FETCH_LIST({commit}, pageName){
-    fatchList(pageName)
+   return fatchList(pageName)
     .then(({data})=>{
       commit('SET_LIST',data);
       return data;
@@ -20,7 +20,7 @@ export default {
     })
   },
   FETCH_NEWS({commit}){
-    fetchNewsList()
+    return fetchNewsList()
     .then(({data})=>{
       commit('SET_LIST',data);
       return data;
@@ -32,7 +32,7 @@ export default {
   },
 
   FETCH_ASK({commit}){
-    fetchAskList()
+    return fetchAskList()
     .then(({data})=>{
       commit('SET_ASK',data);
       return data;
@@ -44,7 +44,7 @@ export default {
   },
 
   FETCH_JOBS({commit}){
-    fetchJobsList()
+    return fetchJobsList()
     .then(({data})=>{
       commit('SET_JOBS',data);
       return data;
@@ -56,7 +56,7 @@ export default {
   },
 
   FETCH_USER({commit}, name){
-    fetchUserInfo(name)
+    return fetchUserInfo(name)
     .then(({data})=>{
       commit('SET_USER', data);
       return data;
@@ -68,7 +68,7 @@ export default {
   },
   
   FETCH_ITEM({commit}, id){
-    fetchItemList(id)
+    return fetchItemList(id)
     .then(({data})=>{
       commit('SET_ITEM', data);
       return data;
