@@ -11,7 +11,7 @@ export const store=new Vuex.Store({
     user:[],
     item:[],
     list:[],
-    spinnerVisible:false,
+    spinnerVisible:true,
   },
 
   getters:{
