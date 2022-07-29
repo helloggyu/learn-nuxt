@@ -9,7 +9,7 @@ import {
 
 export default {
   FETCH_LIST({commit}, pageName){
-   return fatchList(pageName)
+    return fatchList(pageName)
     .then(({data})=>{
       commit('SET_LIST',data);
       return data;

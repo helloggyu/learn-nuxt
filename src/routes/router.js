@@ -6,6 +6,10 @@ import UserView from '../views/UserView.vue';
 import NewsView from '../views/NewsView.vue';
 import AskView from '../views/AskView.vue';
 import JobsView from '../views/JobsView.vue';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1e1fee36428752037b325c1891bc74a38f99b532
 
 Vue.use(VueRouter);
 
@@ -25,7 +29,11 @@ Vue.use(VueRouter);
     {
       path:'/ask',
       name:'ask',
+<<<<<<< HEAD
       component:AskView,
+=======
+     component:AskView,
+>>>>>>> 1e1fee36428752037b325c1891bc74a38f99b532
       //component:createListView('AskView'),
     },
     {
