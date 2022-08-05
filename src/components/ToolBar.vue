@@ -1,10 +1,10 @@
 <template>
   <div class="header">
-    <router-link to="/news">News</router-link> 
+    <v-btn to="/news" :ripple="false" text> News </v-btn>
     <span class="header__divider"></span>
-    <router-link to="/ask">Ask</router-link>
+    <v-btn to="/ask" :ripple="false" text> Ask </v-btn>
     <span class="header__divider"></span>
-    <router-link to="/jobs">Jobs</router-link>
+     <v-btn to="/jobs" :ripple="false" text> Jobs </v-btn>
   </div>
 </template>
 

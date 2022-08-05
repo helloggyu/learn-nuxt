@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+html {
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+body {
+  font-size: 14px;
+  color: #1c1e21;
+  .theme--light.v-application {
+    color: #1c1e21;
+  }
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+
+
+
+.v-application {
+  .theme--light.v-btn:focus::before {
+    opacity: 0;
+  }
+}
+
+.v-application.theme--light .select-specific-day-week .v-btn-toggle:not(.v-btn-toggle--group) .v-btn.v-btn.is-active {
+
+  + .is-active {
+    border-left-color: transparent !important;
+    
+  }
+
+  &::before {
+    display: none;
+  }
+}
+
+
+
+.v-application .v-btn--text {
+  &:hover {
+    &.action--text {
+      color: #4ac8b1 !important;
+    }
+
+    &::before {
+      opacity: 0;
+    }
+  }
+}
+.theme--light.v-btn--active:hover::before, .theme--light.v-btn--active::before{
+  opacity:0 !important;
+}
+
+
+
+.v-application .v-btn--text {
+  &:hover {
+    &.action--text {
+      color: #4ac8b1 !important;
+    }
+
+    &::before {
+      opacity: 0;
+    }
+  }
+}
+
+.v-application {
+  .theme--light.v-btn:focus::before {
+    opacity: 0;
+  }
+}
+
+.theme--light.v-btn--active{
+  color:#ffffff !important;
+}

@@ -31,19 +31,12 @@ export default {
 };
 </script>
 
-<style>
-body{
-  margin: 0;
-  padding: 0;
-}
+<style lang="scss">
+@import '@/scss/reset.scss';
 a{
   text-decoration: none;
   font-weight: 600;
   color: #34495e;
-}
-a:hover{
-  color: #42b882;
-  text-decoration: underline;
 }
 a.router-link-exact-active{
   text-decoration: underline;
