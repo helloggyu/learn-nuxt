@@ -1,56 +1,17 @@
 <template>
-  <v-app>
+  <v-app id="app">
+    <SpinnerView v-if="spinnerVisible"></SpinnerView>
     <ToolBar></ToolBar>
     <transition name="page">
       <router-view></router-view>
     </transition>
-    <SpinnerView></SpinnerView>
-    <!-- <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
-      <HelloWorld/>
-    </v-main> -->
   </v-app>
 </template>
 
 <script>
 import ToolBar from './components/ToolBar';
 import SpinnerView from './components/SpinnerView';
+import { mapState} from 'vuex';
 export default {
   name: 'App',
 
@@ -59,25 +20,23 @@ export default {
     SpinnerView,
   },
 
+    computed:{
+    ...mapState(['spinnerVisible']),
+
+  },
+
   data: () => ({
     //
   }),
 };
 </script>
 
-<style>
-body{
-  margin: 0;
-  padding: 0;
-}
+<style lang="scss">
+@import '@/scss/reset.scss';
 a{
   text-decoration: none;
   font-weight: 600;
   color: #34495e;
-}
-a:hover{
-  color: #42b882;
-  text-decoration: underline;
 }
 a.router-link-exact-active{
   text-decoration: underline;

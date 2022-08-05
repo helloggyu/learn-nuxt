@@ -4,37 +4,44 @@
 
 <script>
 import ListItem from '../components/ListItem.vue';
-import { mapState, mapActions } from 'vuex';
+import { reactive, toRefs, onMounted } from '@vue/composition-api';
+import { useActions } from 'vuex-composition-helpers';
+
 export default {
   components:{
     ListItem,
   },
-  computed:{
-      ...mapState(['list']),
-    },
-    methods:{
-      ...mapActions({
-        showSpinner:'SHOW_SPINNER',
-        hideSpinner:'HIDE_SPINNER',
-        fetchList:'FETCH_LIST'
-      }),
-  
-      _fetchList:(async function(){
-        await this.showSpinner();
-  
-        await this.fetchList(this.$route.name)
+  setup( context ){
+    const { router }=context.root;
+    
+    const { showSpinner, hideSpinner, fetchList }= useActions({
+      showSpinner:'SHOW_SPINNER',
+      hideSpinner:'HIDE_SPINNER',
+      fetchList:'FETCH_LIST'
+      });
+
+    const state = reactive({});
+
+    const _fetchList= async() =>{
+        await fetchList(router.name)
           .then(async ()=>{
-            await this.hideSpinner();
+           await hideSpinner();
           })
           .catch((error)=>{
             console.log(error);
-          })
-      }),
-    },
-  
-    created(){
-      this._fetchList();
-    },
+          })      
+    }
+
+    onMounted(async() => {
+      await showSpinner();
+     _fetchList();
+    });
+
+    return{
+      ...toRefs(state),
+      _fetchList,
+    }
+  },
 }
 </script>
 

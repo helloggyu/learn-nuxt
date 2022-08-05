@@ -12,11 +12,9 @@ export default{
     }),
 
     _fetchList:(async function(){
-      await this.showSpinner();
-
       await this.fetchList(this.$route.name)
         .then(async ()=>{
-          await this.hideSpinner();
+          
         })
         .catch((error)=>{
           console.log(error);
@@ -25,6 +23,10 @@ export default{
   },
 
   created(){
+    this.showSpinner();
     this._fetchList();
   },
+  mounted(){
+    this.hideSpinner();
+  }
 }

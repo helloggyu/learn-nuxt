@@ -2,13 +2,11 @@
   <div class="news-view">
       <ul class="news-view__list">
         <li v-for="(item,i) in list" :key="i" class="news-view__post">
-          <!-- 포인트 영역 -->
           
           <div class="news-view__points">
             {{item.points || 0}}
           </div>
 
-          <!-- 기타 정보영역 -->
           <div>
             <p class="news-view__title">
               <template v-if="item.domain">
